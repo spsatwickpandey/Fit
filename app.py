@@ -41,7 +41,7 @@ for folder in [UPLOAD_FOLDER, OUTPUT_FOLDER, STATIC_IMAGES_FOLDER]:
 # Load YOLO model
 try:
     # Try to use GPU if available
-    device = 'cuda' if torch.cuda.is_available() else 'cpu'
+    device = 'cpu'
     model = YOLO('yolov8x.pt')  # Load YOLOv8x model
     model.to(device)
     logger.info(f"Model loaded successfully on {device}")
