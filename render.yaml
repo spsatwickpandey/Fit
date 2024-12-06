@@ -3,7 +3,14 @@ services:
     name: object-detection-ai
     env: python
     buildCommand: pip install -r requirements.txt
-    startCommand: gunicorn wsgi:app
+    startCommand: gunicorn wsgi:app --workers 1 --threads 2 --timeout 120
     envVars:
       - key: PYTHON_VERSION
-        value: 3.9.0 
+        value: 3.9.0
+      - key: MALLOC_ARENA_MAX
+        value: 2
+    plan: free
+    disk:
+      name: tmp
+      mountPath: /tmp
+      sizeGB: 0.5
