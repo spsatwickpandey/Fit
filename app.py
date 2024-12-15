@@ -42,7 +42,7 @@ for folder in [UPLOAD_FOLDER, OUTPUT_FOLDER, STATIC_IMAGES_FOLDER]:
 try:
     # Try to use GPU if available
     device = 'cpu'
-    model = YOLO('yolov8x.pt')  # Load YOLOv8x model
+    model = YOLO('yolov8n.pt')  # Load YOLOv8x model
     model.to(device)
     logger.info(f"Model loaded successfully on {device}")
 except Exception as e:
